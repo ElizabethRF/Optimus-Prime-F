@@ -177,7 +177,7 @@ Robot::Robot(){ // like init
     
     objects[HEAD] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Head.obj";
     objects[NECK] ="/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Neck.obj";
-    objects[HIPS] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Hips.obj";
+    objects[HIPS] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Hip.obj";
     objects[RLEG] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RLeg.obj";
     objects[RANKLE] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RAnkle.obj";
     objects[RFOOT] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RFoot.obj";
