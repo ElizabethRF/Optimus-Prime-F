@@ -1,7 +1,6 @@
 #include "block.h"
-#include <string>
 
-Block::Block(float positions[3],  float rotations[4], std::string nameObj){ // like init
+Block::Block(float positions[3],  float rotations[4], char* nameObj){ // like init
     position[0] = positions[0];
     position[1] = positions[1];
     position[2] = positions[2]; // x y z
@@ -22,7 +21,12 @@ void Block::draw(float rotations[4]){ // display()
     glPushMatrix();
         glRotatef(rotation[0], rotation[1], rotation[2], rotation[3]);
         glTranslatef(position[0], position[1], position[2]);
-    GLMmodel* x = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Neck.obj");
+    
+    
+    
+        GLMmodel* x = glmReadOBJ(objectName);
+    
+    
         glmDraw(x, GLM_MATERIAL);
     glPopMatrix();
     

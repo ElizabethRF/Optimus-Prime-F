@@ -23,7 +23,6 @@
 
 #include <stdio.h>
 #include <math.h>
-#include <string>
 #define PARTS 16
 
 #ifndef __BLOCK
@@ -33,14 +32,14 @@
 
 class Block{
 public:
-    Block(float positions[3],  float rotation[4], std::string objectName);
+    Block(float positions[3],  float rotation[4], char* objectName);
     ~Block(); // this free the memory when im done with the class
 
     void draw(float rotation[4]);
     void update();
     float position[3];
     float rotation[4];
-    std::string objectName;
+    char* objectName;
     
 
     

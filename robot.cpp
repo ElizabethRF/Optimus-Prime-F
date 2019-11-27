@@ -201,16 +201,7 @@ Robot::Robot(){ // like init
     objects[CHEST] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Chest.obj");
     objects[RFOREARM] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RForearm.obj");
     objects[LFOREARM] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LForearm.obj");*/
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     parts[HEAD] = new Block(positions[HEAD],rotations[HEAD],objectName);
     /*parts[NECK] = new Block(positions[NECK],rotations[NECK],objects[NECK]);
     parts[HIPS] = new Block(positions[HIPS],rotations[HIPS],objects[HIPS]);

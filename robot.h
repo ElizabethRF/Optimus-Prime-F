@@ -47,7 +47,7 @@ public:
     float rotations[PARTS][4];
     float positions[PARTS][3];
     //GLMmodel* objects[PARTS];
-    std::string objectName;
+   char * objectName;
         
 
 };
