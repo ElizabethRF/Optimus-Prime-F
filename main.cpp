@@ -34,6 +34,7 @@
 
 
 Robot* robot;
+int type;
 
 void init() // FOR GLUT LOOP
 {
@@ -52,7 +53,22 @@ void display()                            // Called for each frame (about 60 tim
               0.0, 0.0, 0.0,                                        // To where the camera points at.
               0.0, 1.0, 0.0);                                        // "UP" vector.
 
-    robot->draw(); 
+    
+    switch (type) {
+           case 1:
+               // particle system
+               break;
+           case 2:
+               // animation
+               break;
+           case 3:
+               //move camera right
+               break;
+           case 4:
+               // move camera left
+               break;
+       }
+    robot->draw();
     glutSwapBuffers();                                                // Swap the hidden and visible buffers.
 }
 
@@ -74,13 +90,35 @@ void reshape(int x, int y)                                            // Called 
     display();
 }
 
+void keyboard(unsigned char key, int x, int y){
+    
+    switch (key) {
+        case 'w':
+            type = 1; // japan
+            break;
+        case 'a':
+            type = 2; // germany
+            break;
+        case 's':
+            type = 3; //jamaica
+            break;
+        case 'd':
+            type = 4; // finland
+            break;
+    }
+    
+}
+
+
 int main(int argc, char* argv[])
 {
+    type = 10;
     glutInit(&argc, argv);                                            // Init GLUT with command line parameters.
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGB);        // Use 2 buffers (hidden and visible). Use the depth buffer. Use 3 color channels.
     glutInitWindowSize(800, 800);
     glutInitWindowPosition(100, 10);
-    glutCreateWindow("Opt");
+    glutKeyboardFunc(keyboard);
+    glutCreateWindow("Optimus prime");
     
     
     glutReshapeFunc(reshape);                                        // Reshape CALLBACK function.
@@ -90,3 +128,5 @@ int main(int argc, char* argv[])
     glutMainLoop();                                                    // Begin graphics program.
     return 0;                                                        // ANSI C requires a return value.
 }
+
+
