@@ -32,17 +32,55 @@
 
 #include "robot.h"
 #include "background.h"
+#include "cParticle.h"
 
 
 Robot* robot;
 Background* background;
+int NUM_P = 10;
+Particle** particles;
 
 int type;
+
+
+float randBetween(float min, float max){
+    return min + (max-min) * (float)rand() / RAND_MAX;
+}
 
 void init() // FOR GLUT LOOP
 {
     robot = new Robot();
     background = new Background();
+    //Instatiate particles
+    particles = new Particle*[NUM_P]; //Instantiate
+    for (int p = 0; p < NUM_P; p++) {
+        particles[p] = new Particle();
+				//particles starting point
+        particles[p]->pos[0] = randBetween(0, 100.1f);
+        particles[p]->pos[1] = randBetween(0, 100.1f);
+        particles[p]->pos[2] = randBetween(0, 100.1f);
+
+        particles[p] -> oldPos[0] = particles[p] -> pos[0];
+        particles[p] -> oldPos[1] = particles[p] -> pos[1];
+        particles[p] -> oldPos[2] = particles[p] -> pos[2];
+
+        particles[p] -> mass = randBetween(100,200);
+        particles[p] -> radius = particles[p] -> mass / 20.0f;
+        particles[p] -> area = 4.0f * M_PI * particles[p] -> radius * particles[p] -> radius;
+
+        particles[p] -> diffuse[0] = randBetween(0, 1);
+        particles[p] -> diffuse[1] = randBetween(0, 1);
+        particles[p] -> diffuse[2] = randBetween(0, 1);
+
+        particles[p] -> oDiffuse[0] = particles[p] -> diffuse[0];
+        particles[p] -> oDiffuse[1] = particles[p] -> diffuse[1];
+        particles[p] -> oDiffuse[2] = particles[p] -> diffuse[2];
+
+        float gForce[3] = {9.81f * particles[p]->mass, 0, 0};
+        particles[p] -> addForce(gForce);
+    }
+
+
     glEnable(GL_DEPTH_TEST);            // Enable check for close and far objects.
     glClearColor(0.0, 0.0, 0.0, 0.0);    // Clear the color state.
     glMatrixMode(GL_MODELVIEW);            // Go to 3D mode.
@@ -81,12 +119,21 @@ void display()                            // Called for each frame (about 60 tim
        robot->draw();
         
     glPopMatrix();
+
+    for (int p = 0; p < NUM_P; p++) {
+         particles[p] -> draw();
+     }
     glutSwapBuffers();                                                // Swap the hidden and visible buffers.
 }
 
 void idle()                                                            // Called when drawing is finished.
 {
-    glutPostRedisplay();                                            // Display again.
+    glutPostRedisplay();
+    for (int p = 0; p < NUM_P; p++) {
+        //float gForce[3] = {9.81f * particles[p]->mass, 0, 0};
+        //particles[p] -> addForce(gForce);
+        particles[p] -> stepSimulation(1/60.0f);
+    }                                           // Display again.
 }
 
 void reshape(int x, int y)                                            // Called when the window geometry changes.
@@ -131,7 +178,6 @@ int main(int argc, char* argv[])
     glutInitWindowPosition(100, 10);
     glutKeyboardFunc(keyboard);
     glutCreateWindow("Optimus prime");
-    
     
     glutReshapeFunc(reshape);                                        // Reshape CALLBACK function.
     init();
