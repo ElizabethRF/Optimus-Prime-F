@@ -24,7 +24,7 @@
 #include <stdio.h>
 #include <math.h>
 #include "block.h"
-#include "glm.h"
+#include <string>
 #define PARTS 19
 
 #ifndef __ROBOT
@@ -46,7 +46,8 @@ public:
     Block* parts[PARTS];
     float rotations[PARTS][4];
     float positions[PARTS][3];
-    GLMmodel * objects[PARTS];
+    //GLMmodel* objects[PARTS];
+    std::string objectName;
         
 
 };

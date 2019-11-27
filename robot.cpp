@@ -1,4 +1,5 @@
 #include "robot.h"
+#include <string>
 
 Robot::Robot(){ // like init
     
@@ -182,8 +183,8 @@ Robot::Robot(){ // like init
     rotations[LHAND][2] =     0;
     rotations[LHAND][3] =     0;
     
-    objects[HEAD] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Head.obj");
-    objects[NECK] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Neck.obj");
+    objectName = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Head.obj";
+    /*objects[NECK] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Neck.obj");
     objects[HIPS] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Hips.obj");
     objects[RLEG] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RLeg.obj");
     objects[RANKLE] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RAnkle.obj");
@@ -199,7 +200,7 @@ Robot::Robot(){ // like init
     objects[LFOOT] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LFoot.obj");
     objects[CHEST] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Chest.obj");
     objects[RFOREARM] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RForearm.obj");
-    objects[LFOREARM] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LForearm.obj");
+    objects[LFOREARM] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LForearm.obj");*/
     
     
     
@@ -210,7 +211,7 @@ Robot::Robot(){ // like init
     
     
     
-    parts[HEAD] = new Block(positions[HEAD],rotations[HEAD],objects[HEAD]);
+    parts[HEAD] = new Block(positions[HEAD],rotations[HEAD],objectName);
     /*parts[NECK] = new Block(positions[NECK],rotations[NECK],objects[NECK]);
     parts[HIPS] = new Block(positions[HIPS],rotations[HIPS],objects[HIPS]);
     parts[BODY] = new Block(positions[BODY],rotations[BODY],objects[BODY]);
@@ -242,7 +243,7 @@ Robot::~Robot(){
 
 void Robot::draw(){ // display()
 
-    parts[BODY]->draw(rotations[BODY]);
+    /*parts[BODY]->draw(rotations[BODY]);
     parts[HIPS]->draw(rotations[HIPS]);
     parts[RLEG]->draw(rotations[RLEG]);
     parts[RANKLE]->draw(rotations[RANKLE]);
@@ -259,7 +260,7 @@ void Robot::draw(){ // display()
     parts[LARM]->draw(rotations[LARM]);
     parts[LFOREARM]->draw(rotations[LFOREARM]);
     parts[LHAND]->draw(rotations[LHAND]);
-    parts[NECK]->draw(rotations[NECK]);
+    parts[NECK]->draw(rotations[NECK]);*/
     parts[HEAD]->draw(rotations[HEAD]);
 
 }

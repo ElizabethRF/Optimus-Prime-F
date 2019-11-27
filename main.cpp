@@ -30,9 +30,14 @@
 #include <stdio.h>
 #include <math.h>
 
+#include "robot.h"
+
+
+Robot* robot;
 
 void init() // FOR GLUT LOOP
 {
+    robot = new Robot();
     glEnable(GL_DEPTH_TEST);            // Enable check for close and far objects.
     glClearColor(0.0, 0.0, 0.0, 0.0);    // Clear the color state.
     glMatrixMode(GL_MODELVIEW);            // Go to 3D mode.
@@ -47,7 +52,7 @@ void display()                            // Called for each frame (about 60 tim
               0.0, 0.0, 0.0,                                        // To where the camera points at.
               0.0, 1.0, 0.0);                                        // "UP" vector.
 
-    
+    robot->draw(); 
     glutSwapBuffers();                                                // Swap the hidden and visible buffers.
 }
 
