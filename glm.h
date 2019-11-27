@@ -2,7 +2,7 @@
       glm.h
       Nate Robins, 1997, 2000
       nate@pobox.com, http://www.pobox.com/~nate
- 
+
       Wavefront OBJ model file format reader/writer/manipulator.
 
       Includes routines for generating smooth normals with
@@ -14,14 +14,15 @@
 
  */
 
+ #ifdef __unix__
+ // For Linux users only: g++ CG_Demo.cpp -lglut -lGL -o CG_Demo
+ // ./CG_Demo
+ // Reference: https://www.linuxjournal.com/content/introduction-opengl-programming
+ #include "GL/freeglut.h"
+ #include "GL/gl.h"
+ #endif
 
-#ifdef __APPLE__
-    #include <OpenGL/gl.h>
-    #include <OpenGL/glu.h>
-    #include <GLUT/glut.h>
-#else
-    #include "freeglut.h"
-#endif
+
 
 #ifndef M_PI
 #define M_PI 3.14159265f

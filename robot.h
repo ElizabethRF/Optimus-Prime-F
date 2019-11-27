@@ -40,7 +40,7 @@ public:
     void update();
 
     enum ROBOT_PARTS{
-      HEAD, NECK, BODY, CHEST, HIPS, RLEG, RANKLE, RFOOT,LLEG, LANKLE, LFOOT,LSHOULDER, LARM,  LFOREARM,LHAND, RSHOULDER, RARM, RHAND,RFOREARM
+      HEAD, NECK, CAJA, CHEST, HIPS, RLEG, RANKLE, RFOOT,LLEG, LANKLE, LFOOT,LSHOULDER, LARM,  LFOREARM,LHAND, RSHOULDER, RARM, RHAND,RFOREARM
     };
 
     Block* parts[PARTS];
@@ -48,7 +48,7 @@ public:
     float positions[PARTS][3];
     //GLMmodel* objects[PARTS];
    char* objects[PARTS];
-        
+
 
 };
 

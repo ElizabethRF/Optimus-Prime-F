@@ -2,81 +2,86 @@
 #include <string>
 
 Robot::Robot(){ // like init
-    
-    
+
+
     // POSITION definition
+    // position caja
+    positions[CAJA][0] = -275.123f;
+    positions[CAJA][1] = 47.277f;
+    positions[CAJA][2] = -3.053f;
+
     // position related to neck
     positions[HEAD][0] = 331.145f;
     positions[HEAD][1] = 47.64f;
     positions[HEAD][2] = -7.354f;
-    
+
     // position related to chest
     positions[NECK][0] = 424.206f;
     positions[NECK][1] = -14.441f;
     positions[NECK][2] = -8.946f;
-    
+
     // position related to body
     positions[CHEST][0] = 188.073f;
     positions[CHEST][1] = 82.91f;
     positions[CHEST][2] = -9.728f;
-    
 
-   
+
+
     // position related to body
     positions[HIPS][0] =  33.889f;
     positions[HIPS][1] =  85.204f;
     positions[HIPS][2] =  19.123f;
-   
+
     // position related to hips
     positions[RLEG][0] =  -378.681f;
     positions[RLEG][1] =  -55.798f;
     positions[RLEG][2] =  -135.853f;
-    
+
     positions[LLEG][0] = -376.661f;
     positions[LLEG][1] = -54.027f;
     positions[LLEG][2] = 133.391f;
-    
+
     // position related to Leg
     positions[RANKLE][0] = 4.006f;
     positions[RANKLE][1] = -31.464f;
     positions[RANKLE][2] = 30.687f;
-    
+
     positions[LANKLE][0] =  -4.153f;
     positions[LANKLE][1] =  -34.278f;
     positions[LANKLE][2] =  -56.371f;
-    
+
     // position related to ankle
     positions[RFOOT][0] = 207.783f;
     positions[RFOOT][1] = -3.06f;
     positions[RFOOT][2] = -88.958f;
-    
+
     positions[LFOOT][0] =  165.043f;
     positions[LFOOT][1] =  -46.64f;
     positions[LFOOT][2] =  60.232f;
-    
+
     // position related to chest
     positions[RSHOULDER][0] = -64.203f;
     positions[RSHOULDER][1] = -50.497f;
     positions[RSHOULDER][2] = 113.584f;
-    
+
     positions[LSHOULDER][0] =  -63.934f;
     positions[LSHOULDER][1] =  -46.321f;
     positions[LSHOULDER][2] =  -118.689f;
-    
+
     // position related to shoulder
     positions[RARM][0] = 375.432f;
     positions[RARM][1] = -91.858f;
     positions[RARM][2] = 49.787f;
-    
+
     positions[LARM][0] = 369.307f;
     positions[LARM][1] = -81.868f;
     positions[LARM][2] = -57.382f;
-    
+
     // position related to arm
     positions[RFOREARM][0] = 275.748f;
     positions[RFOREARM][1] = 17.144f;
     positions[RFOREARM][2] = 37.581f;
-    
+
     positions[LFOREARM][0] = 283.834f;
     positions[LFOREARM][1] =  25.377f;
     positions[LFOREARM][2] =  -70.291f;
@@ -85,33 +90,38 @@ Robot::Robot(){ // like init
     positions[RHAND][0] = 357.254f;
     positions[RHAND][1] = 2.17f;
     positions[RHAND][2] = -66.176f;
-    
+
     positions[LHAND][0] = 339.352f;
     positions[LHAND][1] = -4.886f;
     positions[LHAND][2] = 49.138f;
-    
-    
+
+
     // define initial rotations  // angle x y z
+    rotations[CAJA][0] =      0;
+    rotations[CAJA][1] =      1;
+    rotations[CAJA][2] =      0;
+    rotations[CAJA][3] =      0;
+
     rotations[HIPS][0] =      0;
     rotations[HIPS][1] =      1;
     rotations[HIPS][2] =      0;
     rotations[HIPS][3] =      0;
-    
+
     rotations[CHEST][0] =     0;
     rotations[CHEST][1] =     1;
     rotations[CHEST][2] =     0;
     rotations[CHEST][3] =     0;
-    
+
     rotations[NECK][0] =      0;
     rotations[NECK][1] =      1;
     rotations[NECK][2] =      0;
     rotations[NECK][3] =      0;
-    
+
     rotations[HEAD][0] =      0;
     rotations[HEAD][1] =      1;
     rotations[HEAD][2] =      0;
     rotations[HEAD][3] =      0;
-    
+
     rotations[RLEG][0] =      0;
     rotations[RLEG][1] =      1;
     rotations[RLEG][2] =      0;
@@ -120,7 +130,7 @@ Robot::Robot(){ // like init
     rotations[LLEG][1] =      1;
     rotations[LLEG][2] =      0;
     rotations[LLEG][3] =      0;
-    
+
     rotations[RANKLE][0] =    0;
     rotations[RANKLE][1] =    1;
     rotations[RANKLE][2] =    0;
@@ -129,7 +139,7 @@ Robot::Robot(){ // like init
     rotations[LANKLE][1] =    1;
     rotations[LANKLE][2] =    0;
     rotations[LANKLE][3] =    0;
-    
+
     rotations[RFOOT][0] =     0;
     rotations[RFOOT][1] =     1;
     rotations[RFOOT][2] =     0;
@@ -138,7 +148,7 @@ Robot::Robot(){ // like init
     rotations[LFOOT][1] =     1;
     rotations[LFOOT][2] =     0;
     rotations[LFOOT][3] =     0;
-    
+
     rotations[RSHOULDER][0] = 0;
     rotations[RSHOULDER][1] = 1;
     rotations[RSHOULDER][2] = 0;
@@ -147,7 +157,7 @@ Robot::Robot(){ // like init
     rotations[LSHOULDER][1] = 1;
     rotations[LSHOULDER][2] = 0;
     rotations[LSHOULDER][3] = 0;
-    
+
     rotations[RFOREARM][0] =  0;
     rotations[RFOREARM][1] =  1;
     rotations[RFOREARM][2] =  0;
@@ -156,7 +166,7 @@ Robot::Robot(){ // like init
     rotations[LFOREARM][1] =  1;
     rotations[LFOREARM][2] =  0;
     rotations[LFOREARM][3] =  0;
-    
+
     rotations[RARM][0] =      0;
     rotations[RARM][1] =      1;
     rotations[RARM][2] =      0;
@@ -165,7 +175,7 @@ Robot::Robot(){ // like init
     rotations[LARM][1] =      1;
     rotations[LARM][2] =      0;
     rotations[LARM][3] =      0;
-    
+
     rotations[RHAND][0] =     0;
     rotations[RHAND][1] =     1;
     rotations[RHAND][2] =     0;
@@ -174,26 +184,27 @@ Robot::Robot(){ // like init
     rotations[LHAND][1] =     1;
     rotations[LHAND][2] =     0;
     rotations[LHAND][3] =     0;
-    
-    objects[HEAD] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Head.obj";
-    objects[NECK] ="/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Neck.obj";
-    objects[HIPS] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Hip.obj";
-    objects[RLEG] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RLeg.obj";
-    objects[RANKLE] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RAnkle.obj";
-    objects[RFOOT] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RFoot.obj";
-    objects[RSHOULDER] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RShoulder.obj";
-    objects[RARM] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RArm.obj";
-    objects[RHAND] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RHand.obj";
-    objects[LSHOULDER] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LShoulder.obj";
-    objects[LARM] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LArm.obj";
-    objects[LHAND] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LHand.obj";
-    objects[LLEG] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LLeg.obj";
-    objects[LANKLE] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LAnkle.obj";
-    objects[LFOOT] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LFoot.obj";
-    objects[CHEST] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Chest.obj";
-    objects[RFOREARM] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RForearm.obj";
-    objects[LFOREARM] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LForearm.obj";
-   
+
+    objects[HEAD] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/Head.obj";
+    objects[NECK] ="/home/diegogplata/Desktop/Optimus-Prime-F/assets/Neck.obj";
+    objects[HIPS] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/Hip.obj";
+    objects[RLEG] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/RLeg.obj";
+    objects[RANKLE] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/RAnkle.obj";
+    objects[RFOOT] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/RFoot.obj";
+    objects[RSHOULDER] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/RShoulder.obj";
+    objects[RARM] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/RArm.obj";
+    objects[RHAND] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/RHand.obj";
+    objects[LSHOULDER] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/LShoulder.obj";
+    objects[LARM] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/LArm.obj";
+    objects[LHAND] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/LHand.obj";
+    objects[LLEG] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/LLeg.obj";
+    objects[LANKLE] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/LAnkle.obj";
+    objects[LFOOT] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/LFoot.obj";
+    objects[CHEST] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/Chest.obj";
+    objects[RFOREARM] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/RForearm.obj";
+    objects[LFOREARM] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/LForearm.obj";
+    objects[CAJA] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/Caja.obj";
+
     parts[HEAD] = new Block(positions[HEAD],rotations[HEAD],objects[HEAD]);
     parts[NECK] = new Block(positions[NECK],rotations[NECK],objects[NECK]);
     parts[HIPS] = new Block(positions[HIPS],rotations[HIPS],objects[HIPS]);
@@ -212,15 +223,16 @@ Robot::Robot(){ // like init
     parts[CHEST] = new Block(positions[CHEST],rotations[CHEST],objects[CHEST]);
     parts[RFOREARM] = new Block(positions[RFOREARM],rotations[RFOREARM],objects[RFOREARM]);
     parts[LFOREARM] = new Block(positions[LFOREARM],rotations[LFOREARM],objects[LFOREARM]);
-    
-    
-    
-    
-    
+    parts[CAJA] = new Block(positions[CAJA],rotations[CAJA],objects[CAJA]);
+
+
+
+
+
 }
 
 Robot::~Robot(){
-    
+
 }
 
 void Robot::draw(){ // display()
@@ -243,10 +255,10 @@ void Robot::draw(){ // display()
     parts[LHAND]->draw(rotations[LHAND]);
     parts[NECK]->draw(rotations[NECK]);
     parts[HEAD]->draw(rotations[HEAD]);
+    parts[CAJA]->draw(rotations[CAJA]);
 
 }
 
 void Robot::update(){ // update
-    
-}
 
+}
