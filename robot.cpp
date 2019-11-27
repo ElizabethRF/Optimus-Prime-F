@@ -20,10 +20,7 @@ Robot::Robot(){ // like init
     positions[CHEST][1] = 82.91f;
     positions[CHEST][2] = -9.728f;
     
-    //core of robot
-    positions[BODY][0] =  188.073f;
-    positions[BODY][1] =  82.91f;
-    positions[BODY][2] =  -9.728f;
+
    
     // position related to body
     positions[HIPS][0] =  33.889f;
@@ -99,11 +96,6 @@ Robot::Robot(){ // like init
     rotations[HIPS][1] =      1;
     rotations[HIPS][2] =      0;
     rotations[HIPS][3] =      0;
-    
-    rotations[BODY][0] =      0;
-    rotations[BODY][1] =      1;
-    rotations[BODY][2] =      0;
-    rotations[BODY][3] =      0;
     
     rotations[CHEST][0] =     0;
     rotations[CHEST][1] =     1;
@@ -183,44 +175,43 @@ Robot::Robot(){ // like init
     rotations[LHAND][2] =     0;
     rotations[LHAND][3] =     0;
     
-    objectName = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Head.obj";
-    /*objects[NECK] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Neck.obj");
-    objects[HIPS] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Hips.obj");
-    objects[RLEG] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RLeg.obj");
-    objects[RANKLE] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RAnkle.obj");
-    objects[RFOOT] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RFoot.obj");
-    objects[RSHOULDER] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RShoulder.obj");
-    objects[RARM] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RArm.obj");
-    objects[RHAND] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RHand.obj");
-    objects[LSHOULDER] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LShoulder.obj");
-    objects[LARM] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LArm.obj");
-    objects[LHAND] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LHand.obj");
-    objects[LLEG] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LLeg.obj");
-    objects[LANKLE] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LAnkle.obj");
-    objects[LFOOT] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LFoot.obj");
-    objects[CHEST] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Chest.obj");
-    objects[RFOREARM] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RForearm.obj");
-    objects[LFOREARM] = glmReadOBJ("/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LForearm.obj");*/
+    objects[HEAD] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Head.obj";
+    objects[NECK] ="/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Neck.obj";
+    objects[HIPS] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Hips.obj";
+    objects[RLEG] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RLeg.obj";
+    objects[RANKLE] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RAnkle.obj";
+    objects[RFOOT] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RFoot.obj";
+    objects[RSHOULDER] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RShoulder.obj";
+    objects[RARM] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RArm.obj";
+    objects[RHAND] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RHand.obj";
+    objects[LSHOULDER] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LShoulder.obj";
+    objects[LARM] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LArm.obj";
+    objects[LHAND] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LHand.obj";
+    objects[LLEG] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LLeg.obj";
+    objects[LANKLE] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LAnkle.obj";
+    objects[LFOOT] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LFoot.obj";
+    objects[CHEST] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Chest.obj";
+    objects[RFOREARM] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RForearm.obj";
+    objects[LFOREARM] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LForearm.obj";
    
-    parts[HEAD] = new Block(positions[HEAD],rotations[HEAD],objectName);
-    /*parts[NECK] = new Block(positions[NECK],rotations[NECK],objects[NECK]);
+    parts[HEAD] = new Block(positions[HEAD],rotations[HEAD],objects[HEAD]);
+    parts[NECK] = new Block(positions[NECK],rotations[NECK],objects[NECK]);
     parts[HIPS] = new Block(positions[HIPS],rotations[HIPS],objects[HIPS]);
-    parts[BODY] = new Block(positions[BODY],rotations[BODY],objects[BODY]);
     parts[RLEG] = new Block(positions[RLEG],rotations[RLEG],objects[RLEG]);
     parts[RANKLE] = new Block(positions[RANKLE],rotations[RANKLE],objects[RANKLE]);
     parts[RFOOT] = new Block(positions[RFOOT],rotations[RFOOT],objects[RFOOT]);
-    parts[RSHOULDER] = new Block(positions[RSHOULDER],rotations[RSHOULDER]);
-    parts[RARM] = new Block(positions[RARM],rotations[RARM]);
-    parts[RHAND] = new Block(positions[RHAND],rotations[RHAND]);
-    parts[LSHOULDER] = new Block(positions[LSHOULDER],rotations[LSHOULDER]);
-    parts[LARM] = new Block(positions[LARM],rotations[LARM]);
-    parts[LHAND] = new Block(positions[LHAND],rotations[LHAND]);
-    parts[LLEG] = new Block(positions[LLEG],rotations[LLEG]);
-    parts[LANKLE] = new Block(positions[LANKLE],rotations[LANKLE]);
-    parts[LFOOT] = new Block(positions[LFOOT],rotations[LFOOT]);
-    parts[CHEST] = new Block(positions[CHEST],rotations[CHEST]);
-    parts[RFOREARM] = new Block(positions[RFOREARM],rotations[RFOREARM]);
-    parts[LFOREARM] = new Block(positions[LFOREARM],rotations[LFOREARM]);*/
+    parts[RSHOULDER] = new Block(positions[RSHOULDER],rotations[RSHOULDER],objects[RSHOULDER]);
+    parts[RARM] = new Block(positions[RARM],rotations[RARM],objects[RARM]);
+    parts[RHAND] = new Block(positions[RHAND],rotations[RHAND],objects[RHAND]);
+    parts[LSHOULDER] = new Block(positions[LSHOULDER],rotations[LSHOULDER],objects[LSHOULDER]);
+    parts[LARM] = new Block(positions[LARM],rotations[LARM],objects[LARM]);
+    parts[LHAND] = new Block(positions[LHAND],rotations[LHAND],objects[LHAND]);
+    parts[LLEG] = new Block(positions[LLEG],rotations[LLEG],objects[LLEG]);
+    parts[LANKLE] = new Block(positions[LANKLE],rotations[LANKLE],objects[LANKLE]);
+    parts[LFOOT] = new Block(positions[LFOOT],rotations[LFOOT],objects[LFOOT]);
+    parts[CHEST] = new Block(positions[CHEST],rotations[CHEST],objects[CHEST]);
+    parts[RFOREARM] = new Block(positions[RFOREARM],rotations[RFOREARM],objects[RFOREARM]);
+    parts[LFOREARM] = new Block(positions[LFOREARM],rotations[LFOREARM],objects[LFOREARM]);
     
     
     
@@ -234,7 +225,6 @@ Robot::~Robot(){
 
 void Robot::draw(){ // display()
 
-    /*parts[BODY]->draw(rotations[BODY]);
     parts[HIPS]->draw(rotations[HIPS]);
     parts[RLEG]->draw(rotations[RLEG]);
     parts[RANKLE]->draw(rotations[RANKLE]);
@@ -251,7 +241,7 @@ void Robot::draw(){ // display()
     parts[LARM]->draw(rotations[LARM]);
     parts[LFOREARM]->draw(rotations[LFOREARM]);
     parts[LHAND]->draw(rotations[LHAND]);
-    parts[NECK]->draw(rotations[NECK]);*/
+    parts[NECK]->draw(rotations[NECK]);
     parts[HEAD]->draw(rotations[HEAD]);
 
 }
