@@ -53,10 +53,11 @@ float randBetween(float min, float max){
 
 void init() // FOR GLUT LOOP
 {
+    type = 10;
     robot = new Robot();
     background = new Background();
     //Instatiate particles
-    particles = new Particle*[NUM_P]; //Instantiate
+    particles = new Particle*[NUM_P](); //Instantiate
     for (int p = 0; p < NUM_P; p++) {
         particles[p] = new Particle();
 				//particles starting point
@@ -122,11 +123,21 @@ void display()                            // Called for each frame (about 60 tim
     gluLookAt(0.0, 00.0, 600.0,                                        // Where the camera is.
               0.0, 0.0, 0.0,                                        // To where the camera points at.
               0.0, 1.0, 0.0);                                        // "UP" vector.
-
+    background->draw();
+    glPushMatrix();
+    glScalef(0.5, 0.5, 0.5);
+       robot->draw();
+        
+    glPopMatrix();
+    
+    
     
     switch (type) {
            case 1:
                // particle system
+            for (int p = 0; p < NUM_P; p++) {
+                particles[p] -> draw();
+            }
                break;
            case 2:
                // animation
@@ -140,17 +151,9 @@ void display()                            // Called for each frame (about 60 tim
        }
     
     
-    background->draw();
     
-    glPushMatrix();
-    glScalef(0.5, 0.5, 0.5);
-       robot->draw();
-        
-    glPopMatrix();
 
-    for (int p = 0; p < NUM_P; p++) {
-         particles[p] -> draw();
-     }
+    
     glutSwapBuffers();                                                // Swap the hidden and visible buffers.
 }
 
@@ -180,7 +183,7 @@ void reshape(int x, int y)                                            // Called 
 void keyboard(unsigned char key, int x, int y){
     
     switch (key) {
-        case 'w':
+        case '1':
             type = 1; // particle system
             break;
         case 'a':
@@ -199,16 +202,17 @@ void keyboard(unsigned char key, int x, int y){
 
 int main(int argc, char* argv[])
 {
-    type = 10;
+    
     glutInit(&argc, argv);                                            // Init GLUT with command line parameters.
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGB);        // Use 2 buffers (hidden and visible). Use the depth buffer. Use 3 color channels.
     glutInitWindowSize(1300, 800);
     glutInitWindowPosition(100, 10);
-    glutKeyboardFunc(keyboard);
+    
     glutCreateWindow("Optimus prime");
     
     glutReshapeFunc(reshape);                                        // Reshape CALLBACK function.
     init();
+    glutKeyboardFunc(keyboard);
     glutDisplayFunc(display);                                        // Display CALLBACK function.
     glutIdleFunc(idle);                                                // Idle CALLBACK function.
     glutMainLoop();                                                    // Begin graphics program.
