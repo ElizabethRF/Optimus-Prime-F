@@ -3,7 +3,7 @@
 
 Robot::Robot(){ // like init
 
-
+    diegoOEli = true; //true = eli
     // POSITION definition
     // position caja
     positions[CAJA][0] = -275.123f;
@@ -185,6 +185,7 @@ Robot::Robot(){ // like init
     rotations[LHAND][2] =     0;
     rotations[LHAND][3] =     0;
 
+    if(!diegoOEli){
     objects[HEAD] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/Head.obj";
     objects[NECK] ="/home/diegogplata/Desktop/Optimus-Prime-F/assets/Neck.obj";
     objects[HIPS] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/Hip.obj";
@@ -204,6 +205,27 @@ Robot::Robot(){ // like init
     objects[RFOREARM] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/RForearm.obj";
     objects[LFOREARM] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/LForearm.obj";
     objects[CAJA] = "/home/diegogplata/Desktop/Optimus-Prime-F/assets/Caja.obj";
+    }else{
+        objects[HEAD] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Head.obj";
+        objects[NECK] ="/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Neck.obj";
+        objects[HIPS] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Hip.obj";
+        objects[RLEG] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RLeg.obj";
+        objects[RANKLE] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RAnkle.obj";
+        objects[RFOOT] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RFoot.obj";
+        objects[RSHOULDER] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RShoulder.obj";
+        objects[RARM] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RArm.obj";
+        objects[RHAND] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RHand.obj";
+        objects[LSHOULDER] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LShoulder.obj";
+        objects[LARM] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LArm.obj";
+        objects[LHAND] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LHand.obj";
+        objects[LLEG] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LLeg.obj";
+        objects[LANKLE] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LAnkle.obj";
+        objects[LFOOT] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LFoot.obj";
+        objects[CHEST] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Chest.obj";
+        objects[RFOREARM] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/RForearm.obj";
+        objects[LFOREARM] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/LForearm.obj";
+        objects[CAJA] = "/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/Caja.obj";
+    }
 
     parts[HEAD] = new Block(positions[HEAD],rotations[HEAD],objects[HEAD]);
     parts[NECK] = new Block(positions[NECK],rotations[NECK],objects[NECK]);

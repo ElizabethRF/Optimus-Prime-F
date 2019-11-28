@@ -48,6 +48,7 @@ public:
     float positions[PARTS][3];
     //GLMmodel* objects[PARTS];
    char* objects[PARTS];
+    bool diegoOEli; 
 
 
 };
