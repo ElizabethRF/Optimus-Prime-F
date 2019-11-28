@@ -31,14 +31,18 @@
 #include <math.h>
 
 #include "robot.h"
+#include "background.h"
 
 
 Robot* robot;
+Background* background;
+
 int type;
 
 void init() // FOR GLUT LOOP
 {
     robot = new Robot();
+    background = new Background();
     glEnable(GL_DEPTH_TEST);            // Enable check for close and far objects.
     glClearColor(0.0, 0.0, 0.0, 0.0);    // Clear the color state.
     glMatrixMode(GL_MODELVIEW);            // Go to 3D mode.
@@ -49,7 +53,7 @@ void display()                            // Called for each frame (about 60 tim
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);                // Clear color and depth buffers.
     glLoadIdentity();                                                // Reset 3D view matrix.
-    gluLookAt(0.0, 500.0, 500.0,                                        // Where the camera is.
+    gluLookAt(0.0, 00.0, 600.0,                                        // Where the camera is.
               0.0, 0.0, 0.0,                                        // To where the camera points at.
               0.0, 1.0, 0.0);                                        // "UP" vector.
 
@@ -68,7 +72,15 @@ void display()                            // Called for each frame (about 60 tim
                // move camera left
                break;
        }
-    robot->draw();
+    
+    
+    background->draw();
+    
+    glPushMatrix();
+    glScalef(0.5, 0.5, 0.5);
+       robot->draw();
+        
+    glPopMatrix();
     glutSwapBuffers();                                                // Swap the hidden and visible buffers.
 }
 
@@ -94,16 +106,16 @@ void keyboard(unsigned char key, int x, int y){
     
     switch (key) {
         case 'w':
-            type = 1; // japan
+            type = 1; // particle system
             break;
         case 'a':
-            type = 2; // germany
+            type = 2; // start animation
             break;
         case 's':
-            type = 3; //jamaica
+            type = 3; //move left
             break;
         case 'd':
-            type = 4; // finland
+            type = 4; // move right 
             break;
     }
     
@@ -115,7 +127,7 @@ int main(int argc, char* argv[])
     type = 10;
     glutInit(&argc, argv);                                            // Init GLUT with command line parameters.
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGB);        // Use 2 buffers (hidden and visible). Use the depth buffer. Use 3 color channels.
-    glutInitWindowSize(800, 800);
+    glutInitWindowSize(1300, 800);
     glutInitWindowPosition(100, 10);
     glutKeyboardFunc(keyboard);
     glutCreateWindow("Optimus prime");

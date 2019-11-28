@@ -1,4 +1,4 @@
-#include "headers/cCube.h"
+#include "cCube.h"
 
 Cube::Cube( float side, bool use_mipmaps )
 {
@@ -25,8 +25,13 @@ Cube::Cube( float side, bool use_mipmaps )
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
         
         switch (t) {
-            case 0: LoadTGA(&targas[t],"/Users/Intern/Documents/Tec/graficas/TGA/TGA/assets/cube_bottom.tga");  break;
-            case 1: LoadTGA(&targas[t],"/Users/Intern/Documents/Tec/graficas/OptimusPrime/OptimusPrime/assets/cube_right.tga");  break;
+            case 0: LoadTGA(&targas[t],"/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/cube_bottom.tga");  break;
+            case 1: LoadTGA(&targas[t],"/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/cube_right.tga");  break;
+                case 2: LoadTGA(&targas[t],"/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/cube_bottom.tga");  break;
+                case 3: LoadTGA(&targas[t],"/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/cube_right.tga");  break;
+                case 4: LoadTGA(&targas[t],"/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/cube_bottom.tga");  break;
+                case 5: LoadTGA(&targas[t],"/Users/Intern/Desktop/Finalgraficas/Optimus-Prime/Optimus-Prime/assets/cube_right.tga");  break;
+                
 
         }
         
@@ -63,48 +68,26 @@ Cube::~Cube( void )
 void Cube::draw( void )
 {
     glPushMatrix();
-    glRotatef(-60, 0, 100, 0);
-    glBindTexture(GL_TEXTURE_2D, targas[0].texID);
-
-    glBegin(GL_QUADS); // BACK
-    {
-        glNormal3f(0.0f, 0.0f, 1.0f);
-        glTexCoord2f(0.0f, 0.0f);
-        glVertex3f(hside, -hside, -hside);
-
-        glNormal3f(0.0f, 0.0f, 1.0f);
-        glTexCoord2f(1.0f, 0.0f);
-        glVertex3f(-hside, -hside, -hside);
-
-        glNormal3f(0.0f, 0.0f, 1.0f);
-        glTexCoord2f(1.0f, 1.0f);
-        glVertex3f(-hside, 2*hside, -hside);
-
-        glNormal3f(0.0f, 0.0f, 1.0f);
-        glTexCoord2f(0.0f, 1.0f);
-        glVertex3f(hside, 2*hside, -hside);
-
-    }
-     glEnd();
-    glBindTexture(GL_TEXTURE_2D, NULL); // unbind
+    //glRotatef(45, 1,0, 0);
     
     glBindTexture(GL_TEXTURE_2D, targas[1].texID);
     glBegin(GL_QUADS); // BOTTOM
     {
-        glNormal3f(0.0f, 0.0f, 1.0f);
+        glNormal3f(0.0f, -1.0f, 0.0f);
         glTexCoord2f(0.0f, 0.0f);
-        glVertex3f(-hside, -hside, hside);
-        glNormal3f(0.0f, 0.0f, 1.0f);
-        glTexCoord2f(1.0f, 0.0f);
-        glVertex3f(hside, -hside, hside);
-
-        glNormal3f(0.0f, 0.0f, 1.0f);
-        glTexCoord2f(1.0f, 1.0f);
-        glVertex3f(hside, -hside, -hside);
-
-        glNormal3f(0.0f, 0.0f, 1.0f);
-        glTexCoord2f(0.0f, 1.0f);
         glVertex3f(-hside, -hside, -hside);
+
+        glNormal3f(0.0f, -1.0f, 0.0f);
+        glTexCoord2f(1.0f, 0.0f);
+        glVertex3f(3*hside, -hside, -hside);
+
+        glNormal3f(0.0f, -1.0f, 0.0f);
+        glTexCoord2f(1.0f, 1.0f);
+        glVertex3f(3*hside, -hside, hside);
+
+        glNormal3f(0.0f, -1.0f, 0.0f);
+        glTexCoord2f(0.0f, 1.0f);
+        glVertex3f(-hside, -hside, hside);
 
 
 
@@ -127,15 +110,40 @@ void Cube::draw( void )
 
             glNormal3f(0.0f, 0.0f, 1.0f);
             glTexCoord2f(1.0f, 1.0f);
-            glVertex3f(-hside, 2*hside, hside);
+            glVertex3f(-hside, 3*hside, hside);
 
             glNormal3f(0.0f, 0.0f, 1.0f);
             glTexCoord2f(0.0f, 1.0f);
-            glVertex3f(-hside, 2*hside, -hside);
+            glVertex3f(-hside, 3*hside, -hside);
         }
         glEnd();
     
         glBindTexture(GL_TEXTURE_2D, NULL);
     glPopMatrix();
+    
+    glBindTexture(GL_TEXTURE_2D, targas[0].texID);
+
+    glBegin(GL_QUADS); // BACK
+       {
+           
+           glNormal3f(0.0f, 0.0f, 1.0f);
+           glTexCoord2f(0.0f, 0.0f);
+           glVertex3f(3*hside, -hside, -hside);
+
+           glNormal3f(0.0f, 0.0f, 1.0f);
+           glTexCoord2f(1.0f, 0.0f);
+           glVertex3f(-hside, -hside, -hside);
+
+           glNormal3f(0.0f, 0.0f, 1.0f);
+           glTexCoord2f(1.0f, 1.0f);
+           glVertex3f(-hside, 2*hside, -hside);
+
+           glNormal3f(0.0f, 0.0f, 1.0f);
+           glTexCoord2f(0.0f, 1.0f);
+           glVertex3f(3*hside, 2*hside, -hside);
+
+       }
+        glEnd();
+       glBindTexture(GL_TEXTURE_2D, NULL); // unbind
    
 }

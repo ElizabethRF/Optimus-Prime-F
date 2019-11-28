@@ -1,4 +1,4 @@
-#include "headers/cTexture.h"
+#include "cTexture.h"
 #include <cstring>
 
 TGAHeader tgaheader;                                    // TGA header

@@ -1,4 +1,4 @@
-#include "headers/background.h"
+#include "background.h"
 
 
 Cube*        cube0;
@@ -9,10 +9,9 @@ GLfloat*    light10_position;
 
 Background::Background(){
     
-    cube0 = new Cube( 1.0f, false );
+    cube0 = new Cube( 800.0f, true );
+    
     glEnable( GL_TEXTURE_2D );
-    glClearColor ( 0.0f, 0.0f, 0.0f, 0.0f );
-    glShadeModel ( GL_SMOOTH );
 
     mat0_specular        = new GLfloat[4];
     mat0_specular[0]    = 1.0f; //<----------------------------------S0r
@@ -36,9 +35,11 @@ Background::Background(){
     light10_position[3]    = 0.0f; //<----------------------------------L0w
 
     glLightfv( GL_LIGHT0, GL_POSITION,  light10_position );
-    glEnable( GL_LIGHTING );
-    glEnable( GL_LIGHT0 );
-    glEnable( GL_DEPTH_TEST );
+    //glEnable( GL_LIGHTING );
+    //glEnable( GL_LIGHT0 );
+    //glEnable( GL_DEPTH_TEST );
+    
+    
 
 
     
@@ -59,7 +60,6 @@ void Background::draw(){
     
     
     glPushMatrix();
-        glScalef(30,20,20);
         cube0->draw();
     glPopMatrix();
 }
