@@ -9,7 +9,7 @@ GLfloat*    light10_position;
 
 Background::Background(){
     
-    cube0 = new Cube( 800.0f, true );
+    cube0 = new Cube( 800.0f, false );
     
     glEnable( GL_TEXTURE_2D );
 

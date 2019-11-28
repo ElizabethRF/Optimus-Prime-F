@@ -39,6 +39,7 @@ Robot* robot;
 Background* background;
 int NUM_P = 10;
 Particle** particles;
+float cameraX, cameraY, cameraZ;
 
 int type;
 /*GLfloat*	light10_position;	//<-------------------------------Light 0    - location array
@@ -53,6 +54,9 @@ float randBetween(float min, float max){
 
 void init() // FOR GLUT LOOP
 {
+    cameraX = 0.0f;
+    cameraY = 0.0f;
+    cameraZ = 600.0f;
     type = 10;
     robot = new Robot();
     background = new Background();
@@ -120,7 +124,7 @@ void display()                            // Called for each frame (about 60 tim
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);                // Clear color and depth buffers.
     glLoadIdentity();                                                // Reset 3D view matrix.
-    gluLookAt(0.0, 00.0, 600.0,                                        // Where the camera is.
+    gluLookAt(cameraX, cameraY, cameraZ,                                        // Where the camera is.
               0.0, 0.0, 0.0,                                        // To where the camera points at.
               0.0, 1.0, 0.0);                                        // "UP" vector.
     background->draw();
@@ -144,9 +148,16 @@ void display()                            // Called for each frame (about 60 tim
                break;
            case 3:
                //move camera right
+            if(cameraX < 100){
+                cameraX = cameraX +1;
+            }
                break;
            case 4:
                // move camera left
+            if(cameraX > -100){
+                cameraX = cameraX -1;
+            }
+                
                break;
        }
     
@@ -159,6 +170,7 @@ void display()                            // Called for each frame (about 60 tim
 
 void idle()                                                            // Called when drawing is finished.
 {
+    
     glutPostRedisplay();
     for (int p = 0; p < NUM_P; p++) {
         //float gForce[3] = {9.81f * particles[p]->mass, 0, 0};
@@ -183,7 +195,7 @@ void reshape(int x, int y)                                            // Called 
 void keyboard(unsigned char key, int x, int y){
     
     switch (key) {
-        case '1':
+        case 'w':
             type = 1; // particle system
             break;
         case 'a':
