@@ -1,11 +1,19 @@
-#pragma once
-#ifdef __APPLE__
+#pragma
+#ifdef __unix__
+// For Linux users only: g++ CG_Demo.cpp -lglut -lGL -o CG_Demo
+// ./CG_Demo
+// Reference: https://www.linuxjournal.com/content/introduction-opengl-programming
+#include "GL/freeglut.h"
+#include "GL/gl.h"
+#endif
+
+/*#ifdef __APPLE__
     #include <OpenGL/gl.h>
     #include <OpenGL/glu.h>
     #include <GLUT/glut.h>
 #else
     #include "freeglut.h"
-#endif
+#endif*/
 
 #include <stdlib.h>
 #include <stdio.h>
