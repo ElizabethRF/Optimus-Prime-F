@@ -13,7 +13,6 @@
       Tudor Carean - April 2008 - added texture support
 
  */
-
  #ifdef __unix__
  // For Linux users only: g++ CG_Demo.cpp -lglut -lGL -o CG_Demo
  // ./CG_Demo

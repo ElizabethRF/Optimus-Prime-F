@@ -41,7 +41,11 @@ int NUM_P = 10;
 Particle** particles;
 
 int type;
-
+/*GLfloat*	light10_position;	//<-------------------------------Light 0    - location array
+GLfloat*	light10_ambient;		//<-------------------------------Light 0    - ambient array
+GLfloat*	light10_specular;	//<-------------------------------Light 0    - diffuse array
+GLfloat*	light10_diffuse;*/		//<-------------------------------Light 0    - specular array
+GLfloat*	global_ambient;
 
 float randBetween(float min, float max){
     return min + (max-min) * (float)rand() / RAND_MAX;
@@ -56,9 +60,9 @@ void init() // FOR GLUT LOOP
     for (int p = 0; p < NUM_P; p++) {
         particles[p] = new Particle();
 				//particles starting point
-        particles[p]->pos[0] = randBetween(0, 100.1f);
-        particles[p]->pos[1] = randBetween(0, 100.1f);
-        particles[p]->pos[2] = randBetween(0, 100.1f);
+        particles[p]->pos[0] = randBetween(0, 100.0f);
+        particles[p]->pos[1] = randBetween(0, 100.0f);
+        particles[p]->pos[2] = randBetween(0, 100.0f);
 
         particles[p] -> oldPos[0] = particles[p] -> pos[0];
         particles[p] -> oldPos[1] = particles[p] -> pos[1];
@@ -81,7 +85,31 @@ void init() // FOR GLUT LOOP
     }
 
 
+    GLfloat diffusel0[4]	= { 1.0f, 1.0f, 1.0f, 1.0f };
+  	GLfloat ambientl0[4]	= { 1.0f, 1.0f, 1.0f, 1.0f };
+  	GLfloat specularl0[4]	= { 1.0f, 1.0f, 1.0f, 1.0f };
+  	GLfloat position[4]		= { 2.0f, 0.5f, 1.0f, 0.0f };
+    glLightfv( GL_LIGHT0, GL_AMBIENT,   ambientl0  );
+	  glLightfv( GL_LIGHT0, GL_DIFFUSE,   diffusel0  );
+	  glLightfv( GL_LIGHT0, GL_SPECULAR,  specularl0 );
+	  glLightfv( GL_LIGHT0, GL_POSITION,  position   );
+
+
+	glEnable(GL_LIGHTING);
+// Enable LIGHT 0:
+	glEnable(GL_LIGHT0);
+
+  global_ambient			= new GLfloat[4];
+	global_ambient[0]		= 0.3f;
+	global_ambient[1]		= 0.3f;
+	global_ambient[2]		= 0.3f;
+	global_ambient[3]		= 1.0f;
+	glLightModelfv( GL_LIGHT_MODEL_AMBIENT, global_ambient );
+	glLightModeli( GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE );
+	glLightModeli( GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE );
+
     glEnable(GL_DEPTH_TEST);            // Enable check for close and far objects.
+    glEnable( GL_TEXTURE_2D );
     glClearColor(0.0, 0.0, 0.0, 0.0);    // Clear the color state.
     glMatrixMode(GL_MODELVIEW);            // Go to 3D mode.
     glLoadIdentity();                    // Reset 3D view matrix.
