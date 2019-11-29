@@ -42,12 +42,55 @@ int NUM_P = 10;
 Particle** particles;
 float cameraX, cameraY, cameraZ;
 
+float yaw = -90.0f;
+float pitch = 0.0f;
+float fov = 45.0f;
+
+bool firstMouse = true;
+float lastX = 800.0f /2.0;
+float lastY = 600.0f /2.0;
+
 int type;
 GLfloat*	light0_position;	//<-------------------------------Light 0    - location array
 GLfloat*	light0_ambient;		//<-------------------------------Light 0    - ambient array
 GLfloat*	light0_specular;	//<-------------------------------Light 0    - diffuse array
 GLfloat*	light0_diffuse;		//<-------------------------------Light 0    - specular array
 //GLfloat*	global_ambient;
+
+//JAFET
+//glfwSetCursorPosCallback(window, mouse_callback);
+
+//JAFET
+//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+/*
+void mouse_callback(GLFWindow* window, double xpos, double ypos)
+{
+    if(firstMouse)
+    {
+        lastX = xpos;
+        lastY = ypos;
+        firstMouse = false;
+    }
+    
+    float xoffset = xpos - lastX;
+    float yoffset = lastY - ypos;
+    lastX = xpos;
+    lastY = ypos;
+
+    float sensitivy = 0.1f;
+    xoffset *= sensitivity;
+    yoffset *= sensitivity;
+    yaw += xoffset;
+    pitch += yoffset;
+
+    if(pitch > 89.0f)
+        pitch = 89.0f;
+    if(pitch < -89.0f)
+        pitch = -89.0F;
+        
+
+}*/
 
 float randBetween(float min, float max){
     return min + (max-min) * (float)rand() / RAND_MAX;

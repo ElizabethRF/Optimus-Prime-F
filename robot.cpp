@@ -119,7 +119,7 @@ Robot::Robot(){ // like init
     rotations[NECK][2] =      0;
     rotations[NECK][3] =      0;
 
-    rotations[HEAD][0] =      0;
+    rotations[HEAD][0] =      angleTranslation[HEAD];
     rotations[HEAD][1] =      0;
     rotations[HEAD][2] =      0;
     rotations[HEAD][3] =      1;
@@ -261,28 +261,24 @@ Robot::~Robot(){
 
 void Robot::draw(){ // display()
 
-    //parts[HIPS]->draw(rotations[HIPS]);
-    //parts[RLEG]->draw(rotations[RLEG]);
-    //parts[RANKLE]->draw(rotations[RANKLE]);
-    //parts[RFOOT]->draw(rotations[RFOOT]);
-    //parts[LLEG]->draw(rotations[LLEG]);
-    //parts[LANKLE]->draw(rotations[LANKLE]);
-    //parts[LFOOT]->draw(rotations[LFOOT]);
-    //parts[CHEST]->draw(rotations[CHEST]);
-    //parts[RSHOULDER]->draw(rotations[RSHOULDER]);
-    //parts[RARM]->draw(rotations[RARM]);
-    //parts[RFOREARM]->draw(rotations[RFOREARM]);
-    //parts[RHAND]->draw(rotations[RHAND]);
-    //parts[LSHOULDER]->draw(rotations[LSHOULDER]);
-    //parts[LARM]->draw(rotations[LARM]);
-    //parts[LFOREARM]->draw(rotations[LFOREARM]);
-    //parts[LHAND]->draw(rotations[LHAND]);
-    //parts[NECK]->draw(rotations[NECK]);
+    parts[HIPS]->draw(rotations[HIPS]);
+    parts[RLEG]->draw(rotations[RLEG]);
+    parts[RANKLE]->draw(rotations[RANKLE]);
+    parts[RFOOT]->draw(rotations[RFOOT]);
+    parts[LLEG]->draw(rotations[LLEG]);
+    parts[LANKLE]->draw(rotations[LANKLE]);
+    parts[LFOOT]->draw(rotations[LFOOT]);
+    parts[CHEST]->draw(rotations[CHEST]);
+    parts[RSHOULDER]->draw(rotations[RSHOULDER]);
+    parts[RARM]->draw(rotations[RARM]);
+    parts[RFOREARM]->draw(rotations[RFOREARM]);
+    parts[RHAND]->draw(rotations[RHAND]);
+    parts[LSHOULDER]->draw(rotations[LSHOULDER]);
+    parts[LARM]->draw(rotations[LARM]);
+    parts[LFOREARM]->draw(rotations[LFOREARM]);
+    parts[LHAND]->draw(rotations[LHAND]);
+    parts[NECK]->draw(rotations[NECK]);
     
-    rotations[HEAD][0] =      -90;//angleTranslation[HEAD];
-    rotations[HEAD][1] =      0;
-    rotations[HEAD][2] =      0;
-    rotations[HEAD][3] =      1;
     
     parts[HEAD]->draw(rotations[HEAD]);
     if(false){
@@ -298,7 +294,7 @@ void Robot::update(){ // update
 
 void Robot::startAnimation(){
     showBox = false;
-    angleTranslation[HEAD] = 90;
+    angleTranslation[HEAD] = -90;
     
     /*
     // HEAD
