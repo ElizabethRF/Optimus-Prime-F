@@ -98,7 +98,7 @@ float randBetween(float min, float max){
 
 void init() // FOR GLUT LOOP
 {
-    cameraX = 00.0f;
+    cameraX = 400.0f;
     cameraY = 0.0f;
     cameraZ = 600.0f;
     type = 10;

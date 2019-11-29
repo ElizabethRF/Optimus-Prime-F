@@ -13,14 +13,14 @@ Robot::Robot(){ // like init
     positions[CAJA][2] = 0;
 
     // position related to neck
-    positions[HEAD][0] = 214.538f;
-    positions[HEAD][1] = 134.618f;
-    positions[HEAD][2] = -2.139f;
-
+    positions[HEAD][0] = -45.798;//214.538f;  //  -45.798;//
+    positions[HEAD][1] = 18.076;//134.618f;  //  18.076;//
+    positions[HEAD][2] = 1.25;//-2.139f;   //  1.25;//
+  
     // position related to chest
-    positions[NECK][0] = 260.336f;
-    positions[NECK][1] = 116.542f;
-    positions[NECK][2] = -3.389f;
+    positions[NECK][0] = -21.684;//260.336f;  //  -21.684;//
+    positions[NECK][1] = 12.92;//116.542f;  //  12.92;//
+    positions[NECK][2] = 0.084;//-3.389f;   //  0.084;//
 
     // position related to body
     positions[CHEST][0] = 282.02f;
@@ -30,9 +30,9 @@ Robot::Robot(){ // like init
 
 
     // position related to body
-    positions[HIPS][0] =  252.281f;
-    positions[HIPS][1] =  -28.126f;
-    positions[HIPS][2] =  -3.221f;
+    positions[HIPS][0] = -29.739f  ; //252.281f;
+    positions[HIPS][1] = -131.748f ;  //-28.126f;
+    positions[HIPS][2] =    0.252f ;  //-3.221f;
 
     // position related to hips
     positions[RLEG][0] =  189.4f;
@@ -260,30 +260,116 @@ Robot::~Robot(){
 }
 
 void Robot::draw(){ // display()
-
-    parts[HIPS]->draw(rotations[HIPS]);
-    parts[RLEG]->draw(rotations[RLEG]);
-    parts[RANKLE]->draw(rotations[RANKLE]);
-    parts[RFOOT]->draw(rotations[RFOOT]);
-    parts[LLEG]->draw(rotations[LLEG]);
-    parts[LANKLE]->draw(rotations[LANKLE]);
-    parts[LFOOT]->draw(rotations[LFOOT]);
-    parts[CHEST]->draw(rotations[CHEST]);
-    parts[RSHOULDER]->draw(rotations[RSHOULDER]);
-    parts[RARM]->draw(rotations[RARM]);
-    parts[RFOREARM]->draw(rotations[RFOREARM]);
-    parts[RHAND]->draw(rotations[RHAND]);
-    parts[LSHOULDER]->draw(rotations[LSHOULDER]);
-    parts[LARM]->draw(rotations[LARM]);
-    parts[LFOREARM]->draw(rotations[LFOREARM]);
-    parts[LHAND]->draw(rotations[LHAND]);
-    parts[NECK]->draw(rotations[NECK]);
+   parts[CHEST]->draw(rotations[CHEST]);
+    glPushMatrix();
+    {
+        glRotatef(angleTranslation[HEAD], 0, 0, 1);
+        
+        parts[NECK]->draw(rotations[NECK]);
+        parts[HEAD]->draw(rotations[HEAD]);
+    }
+    glPopMatrix();
     
+    glPushMatrix();
+    {
+        parts[HIPS]->draw(rotations[HIPS]);
+    }
+    glPopMatrix();
+    
+   // // DOWN PART OF THE BODY
+   // glPushMatrix();
+   // {
+   //
+   //
+   //     // RIGHT SIDE LEGS
+   //     glPushMatrix();
+   //     {
+   //         parts[RLEG]->draw(rotations[RLEG]);
+   //         parts[RANKLE]->draw(rotations[RANKLE]);
+   //         parts[RFOOT]->draw(rotations[RFOOT]);
+   //
+   //     }
+   //     glPopMatrix();
+   //
+   //     // LEFT SIDE LEGS
+   //     glPushMatrix();
+   //     {
+   //         parts[LLEG]->draw(rotations[LLEG]);
+   //         parts[LANKLE]->draw(rotations[LANKLE]);
+   //         parts[LFOOT]->draw(rotations[LFOOT]);
+   //     }
+   //     glPopMatrix();
+   //
+   //
+   //
+   // }glPopMatrix();
+   //
+   // // TOP PART OF THE BODY
+   // glPushMatrix();
+   // {
+   //
+   //
+   //     //ARMS
+   //
+   //     // RIGHT ARM
+   //     glPushMatrix();
+   //     {
+   //         parts[RSHOULDER]->draw(rotations[RSHOULDER]);
+   //         parts[RARM]->draw(rotations[RARM]);
+   //         parts[RFOREARM]->draw(rotations[RFOREARM]);
+   //         parts[RHAND]->draw(rotations[RHAND]);
+   //     }
+   //     glPopMatrix();
+   //
+   //     // LEFT ARM
+   //     glPushMatrix();
+   //     {
+   //         parts[LSHOULDER]->draw(rotations[LSHOULDER]);
+   //         parts[LARM]->draw(rotations[LARM]);
+   //         parts[LFOREARM]->draw(rotations[LFOREARM]);
+   //         parts[LHAND]->draw(rotations[LHAND]);
+   //     }
+   //     glPopMatrix();
+   //     //glPopMatrix();
+   //     // NECK
+   //
+   //     // HEAD
+   //
+   //
+   //
+   //
+   // }
+   // glPopMatrix();
+    
+    
+    // SOS
+   //parts[HIPS]->draw(rotations[HIPS]);
+   //parts[RLEG]->draw(rotations[RLEG]);
+   //parts[RANKLE]->draw(rotations[RANKLE]);
+   //parts[RFOOT]->draw(rotations[RFOOT]);
+   //parts[LLEG]->draw(rotations[LLEG]);
+   //parts[LANKLE]->draw(rotations[LANKLE]);
+   //parts[LFOOT]->draw(rotations[LFOOT]);
+   //parts[CHEST]->draw(rotations[CHEST]);
+   //parts[RSHOULDER]->draw(rotations[RSHOULDER]);
+   //parts[RARM]->draw(rotations[RARM]);
+   //parts[RFOREARM]->draw(rotations[RFOREARM]);
+   //parts[RHAND]->draw(rotations[RHAND]);
+   //parts[LSHOULDER]->draw(rotations[LSHOULDER]);
+   //parts[LARM]->draw(rotations[LARM]);
+   //parts[LFOREARM]->draw(rotations[LFOREARM]);
+   //parts[LHAND]->draw(rotations[LHAND]);
+   //parts[NECK]->draw(rotations[NECK]);
+    /*
+    rotations[HEAD][0] =      angleTranslation[HEAD];
+    rotations[HEAD][1] =      0;
+    rotations[HEAD][2] =      0;
+    rotations[HEAD][3] =      1;
     
     parts[HEAD]->draw(rotations[HEAD]);
     if(false){
         parts[CAJA]->draw(rotations[CAJA]);
-    }
+    }*/
     
 
 }
@@ -294,7 +380,10 @@ void Robot::update(){ // update
 
 void Robot::startAnimation(){
     showBox = false;
-    angleTranslation[HEAD] = -90;
+    if(angleTranslation[HEAD] > -90){
+        angleTranslation[HEAD] = angleTranslation[HEAD] -1;
+    }
+    
     
     /*
     // HEAD
@@ -318,4 +407,7 @@ void Robot::startAnimation(){
 void Robot::returnAnimation(){
     
     showBox = true;
+    if(angleTranslation[HEAD] < 0){
+        angleTranslation[HEAD] = angleTranslation[HEAD] +1;
+    }
 }
