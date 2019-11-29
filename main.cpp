@@ -145,6 +145,7 @@ void display()                            // Called for each frame (about 60 tim
                break;
            case 2:
                // animation
+            robot -> update();
                break;
            case 3:
                //move camera right
@@ -177,6 +178,13 @@ void idle()                                                            // Called
         //particles[p] -> addForce(gForce);
         particles[p] -> stepSimulation(1/60.0f);
     }                                           // Display again.
+    
+    switch (type) {
+        case 2:
+            // animation
+         robot -> update();
+            break;
+    }
 }
 
 void reshape(int x, int y)                                            // Called when the window geometry changes.
