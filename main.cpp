@@ -42,11 +42,11 @@ Particle** particles;
 float cameraX, cameraY, cameraZ;
 
 int type;
-/*GLfloat*	light10_position;	//<-------------------------------Light 0    - location array
-GLfloat*	light10_ambient;		//<-------------------------------Light 0    - ambient array
-GLfloat*	light10_specular;	//<-------------------------------Light 0    - diffuse array
-GLfloat*	light10_diffuse;*/		//<-------------------------------Light 0    - specular array
-GLfloat*	global_ambient;
+GLfloat*	light0_position;	//<-------------------------------Light 0    - location array
+GLfloat*	light0_ambient;		//<-------------------------------Light 0    - ambient array
+GLfloat*	light0_specular;	//<-------------------------------Light 0    - diffuse array
+GLfloat*	light0_diffuse;		//<-------------------------------Light 0    - specular array
+//GLfloat*	global_ambient;
 
 float randBetween(float min, float max){
     return min + (max-min) * (float)rand() / RAND_MAX;
@@ -88,30 +88,43 @@ void init() // FOR GLUT LOOP
         float gForce[3] = {9.81f * particles[p]->mass, 0, 0};
         particles[p] -> addForce(gForce);
     }
+    
+    light0_position = new GLfloat[4]; //<-------------------------Reserve memory
+    light0_position[0] = 1.0f; //<--------------------------------L0x
+    light0_position[1] = 1.0f; //<--------------------------------L0y
+    light0_position[2] = 1.0f; //<--------------------------------L0z
+    light0_position[3] = 0.0f; //<--------------------------------L0w
+
+     light0_ambient = new GLfloat[4]; //<--------------------------Reserve memory
+        light0_ambient[0] = 0.3f; //<---------------------------------Ia0r
+        light0_ambient[1] = 0.3f; //<---------------------------------Ia0g
+        light0_ambient[2] = 0.3f; //<---------------------------------Ia0b
+        light0_ambient[3] = 1.0f; //<---------------------------------Ia0a
+
+        light0_diffuse = new GLfloat[4]; //<--------------------------Reserve memory
+        light0_diffuse[0] = 1.0f; //<---------------------------------Id0r
+        light0_diffuse[1] = 1.0f; //<---------------------------------Id0g
+        light0_diffuse[2] = 1.0f; //<---------------------------------Id0b
+        light0_diffuse[3] = 1.0f; //<---------------------------------Id0a
+
+        light0_specular = new GLfloat[4]; //<-------------------------Reserve memory
+        light0_specular[0] = 1.0f; //<--------------------------------Is0r
+        light0_specular[1] = 1.0f; //<--------------------------------Is0g
+        light0_specular[2] = 1.0f; //<--------------------------------Is0b
+        light0_specular[3] = 1.0f; //<--------------------------------Is0a
 
 
-    GLfloat diffusel0[4]	= { 1.0f, 1.0f, 1.0f, 1.0f };
-  	GLfloat ambientl0[4]	= { 1.0f, 1.0f, 1.0f, 1.0f };
-  	GLfloat specularl0[4]	= { 1.0f, 1.0f, 1.0f, 1.0f };
-  	GLfloat position[4]		= { 2.0f, 0.5f, 1.0f, 0.0f };
-    glLightfv( GL_LIGHT0, GL_AMBIENT,   ambientl0  );
-	  glLightfv( GL_LIGHT0, GL_DIFFUSE,   diffusel0  );
-	  glLightfv( GL_LIGHT0, GL_SPECULAR,  specularl0 );
-	  glLightfv( GL_LIGHT0, GL_POSITION,  position   );
+
+      glLightfv(GL_LIGHT0, GL_POSITION, light0_position);
+    glLightfv(GL_LIGHT0, GL_AMBIENT, light0_ambient);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, light0_diffuse);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, light0_specular);
 
 
 	glEnable(GL_LIGHTING);
 // Enable LIGHT 0:
 	glEnable(GL_LIGHT0);
 
-  global_ambient			= new GLfloat[4];
-	global_ambient[0]		= 0.3f;
-	global_ambient[1]		= 0.3f;
-	global_ambient[2]		= 0.3f;
-	global_ambient[3]		= 1.0f;
-	glLightModelfv( GL_LIGHT_MODEL_AMBIENT, global_ambient );
-	glLightModeli( GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE );
-	glLightModeli( GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE );
 
     glEnable(GL_DEPTH_TEST);            // Enable check for close and far objects.
     glEnable( GL_TEXTURE_2D );
