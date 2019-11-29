@@ -79,11 +79,11 @@ void Cube::draw( void )
 
         glNormal3f(0.0f, -1.0f, 0.0f);
         glTexCoord2f(1.0f, 0.0f);
-        glVertex3f(3*hside, -hside, -hside);
+        glVertex3f(hside, -hside, -hside);
 
         glNormal3f(0.0f, -1.0f, 0.0f);
         glTexCoord2f(1.0f, 1.0f);
-        glVertex3f(3*hside, -hside, hside);
+        glVertex3f(hside, -hside, hside);
 
         glNormal3f(0.0f, -1.0f, 0.0f);
         glTexCoord2f(0.0f, 1.0f);
@@ -110,11 +110,11 @@ void Cube::draw( void )
 
             glNormal3f(0.0f, 0.0f, 1.0f);
             glTexCoord2f(1.0f, 1.0f);
-            glVertex3f(-hside, 3*hside, hside);
+            glVertex3f(-hside, 2*hside, hside);
 
             glNormal3f(0.0f, 0.0f, 1.0f);
             glTexCoord2f(0.0f, 1.0f);
-            glVertex3f(-hside, 3*hside, -hside);
+            glVertex3f(-hside, 2*hside, -hside);
         }
         glEnd();
     
@@ -128,7 +128,7 @@ void Cube::draw( void )
            
            glNormal3f(0.0f, 0.0f, 1.0f);
            glTexCoord2f(0.0f, 0.0f);
-           glVertex3f(3*hside, -hside, -hside);
+           glVertex3f(hside, -hside, -hside);
 
            glNormal3f(0.0f, 0.0f, 1.0f);
            glTexCoord2f(1.0f, 0.0f);
@@ -140,7 +140,7 @@ void Cube::draw( void )
 
            glNormal3f(0.0f, 0.0f, 1.0f);
            glTexCoord2f(0.0f, 1.0f);
-           glVertex3f(3*hside, 2*hside, -hside);
+           glVertex3f(hside, 2*hside, -hside);
 
        }
         glEnd();
@@ -160,11 +160,11 @@ void Cube::draw( void )
     
             glNormal3f(1.0f, 0.0f, 0.0f);
             glTexCoord2f(1.0f, 1.0f);
-            glVertex3f(hside, hside, -hside);
+            glVertex3f(hside, 2*hside, -hside);
     
             glNormal3f(1.0f, 0.0f, 0.0f);
             glTexCoord2f(0.0f, 1.0f);
-            glVertex3f(hside, hside, hside);
+            glVertex3f(hside, 2*hside, hside);
         }
         glEnd();
     
