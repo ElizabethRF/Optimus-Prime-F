@@ -9,6 +9,7 @@ Block::Block(float positions[3],  float rotations[4], char* nameObj){ // like in
     rotation[2] = rotations[2]; // y
     rotation[3] = rotations[3]; // z
     objectName = nameObj;
+    x = glmReadOBJ(objectName);
 
 }
 
@@ -22,11 +23,11 @@ void Block::draw(float rotations[4]){ // display()
     //glTranslatef(-position[0], -position[1], -position[2]);
     
     glTranslatef(position[0], position[1], position[2]);
-    glRotatef(rotations[0], rotations[1], rotations[2], rotations[3]);
+    //glRotatef(rotations[0], rotations[1], rotations[2], rotations[3]);
     
     
 
-    GLMmodel* x = glmReadOBJ(objectName);
+    
     glmDraw(x, GLM_MATERIAL);
     //glPopMatrix();
     

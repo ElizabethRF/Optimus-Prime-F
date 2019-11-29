@@ -98,7 +98,7 @@ float randBetween(float min, float max){
 
 void init() // FOR GLUT LOOP
 {
-    cameraX = 400.0f;
+    cameraX = 00.0f;
     cameraY = 0.0f;
     cameraZ = 600.0f;
     type = 10;
@@ -207,13 +207,13 @@ void display()                            // Called for each frame (about 60 tim
            case 3:
                //move camera right
             if(cameraX < 400){
-                cameraX = cameraX +1;
+                cameraX = cameraX +10;
             }
                break;
            case 4:
                // move camera left
-            if(cameraX > -100){
-                cameraX = cameraX - 1;
+            if(cameraX > -200){
+                cameraX = cameraX - 10;
             }
                break;
         case 5: // particle system
@@ -228,8 +228,10 @@ void display()                            // Called for each frame (about 60 tim
             robot -> returnAnimation();
             break;
        }
+    glPushMatrix();
+    glTranslatef(-200, 0, 0);
          robot->draw();
-    
+    glPopMatrix();
     
 
     
@@ -258,7 +260,7 @@ void reshape(int x, int y)                                            // Called 
 {
     glMatrixMode(GL_PROJECTION);                                    // Go to 2D mode.
     glLoadIdentity();                                                // Reset the 2D matrix.
-    gluPerspective(60.0, (GLdouble)x / (GLdouble)y, 0.01, 1024.0);        // Configure the camera lens aperture.
+    gluPerspective(60.0, (GLdouble)x / (GLdouble)y, 0.01, 5024.0);        // Configure the camera lens aperture.
     glMatrixMode(GL_MODELVIEW);                                        // Go to 3D mode.
     glViewport(0, 0, x, y);                                            // Configure the camera frame dimensions.
     gluLookAt(0.0, 1.0, 4.0,

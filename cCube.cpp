@@ -145,5 +145,30 @@ void Cube::draw( void )
        }
         glEnd();
        glBindTexture(GL_TEXTURE_2D, NULL); // unbind
+    
+    glBindTexture(GL_TEXTURE_2D, targas[0].texID);
+    
+        glBegin(GL_QUADS); // RIGHT
+        {
+            glNormal3f(1.0f, 0.0f, 0.0f);
+            glTexCoord2f(0.0f, 0.0f);
+            glVertex3f(hside, -hside, hside);
+    
+            glNormal3f(1.0f, 0.0f, 0.0f);
+            glTexCoord2f(1.0f, 0.0f);
+            glVertex3f(hside, -hside, -hside);
+    
+            glNormal3f(1.0f, 0.0f, 0.0f);
+            glTexCoord2f(1.0f, 1.0f);
+            glVertex3f(hside, hside, -hside);
+    
+            glNormal3f(1.0f, 0.0f, 0.0f);
+            glTexCoord2f(0.0f, 1.0f);
+            glVertex3f(hside, hside, hside);
+        }
+        glEnd();
+    
+        glBindTexture(GL_TEXTURE_2D, NULL);
+
    
 }

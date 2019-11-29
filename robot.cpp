@@ -4,6 +4,10 @@
 Robot::Robot(){ // like init
 
     angleTranslation[HEAD] = 0;
+    angleTranslation[RLEG] = 0;
+    angleTranslation[RFOREARM] = 0;
+    angleTranslation[LARM] = 0;
+    angleTranslation[RARM] = 0;
     diegoOEli = true; //true = eli
     showBox = true;
     // POSITION definition
@@ -35,67 +39,67 @@ Robot::Robot(){ // like init
     positions[HIPS][2] =    0.252f ;  //-3.221f;
 
     // position related to hips
-    positions[RLEG][0] =  189.4f;
-    positions[RLEG][1] =  -49.484f;
-    positions[RLEG][2] =  76.929f;
+    positions[RLEG][0] = -62.881f;// 189.4f;
+    positions[RLEG][1] = -21.358f;// -49.484f;
+    positions[RLEG][2] = 80.15f;// 76.929f;
 
-    positions[LLEG][0] = -90.038f;
-    positions[LLEG][1] = -49.022f;
-    positions[LLEG][2] = -83.42f;
+    positions[LLEG][0] = -442.319f;//-90.038f;
+    positions[LLEG][1] = -20.896f;//-49.022f;
+    positions[LLEG][2] = -80.119f;//-83.42f;
 
     // position related to Leg
-    positions[RANKLE][0] = -12.194f;
-    positions[RANKLE][1] = -77.585f;
-    positions[RANKLE][2] = 113.417f;
+    positions[RANKLE][0] = -201.594f;//-12.194f;
+    positions[RANKLE][1] = -28.101f;//-77.585f;
+    positions[RANKLE][2] = 36.488f;//113.417f;
 
-    positions[LANKLE][0] =  -9.946f;
-    positions[LANKLE][1] =  -66.638f;
-    positions[LANKLE][2] =  -110.759f;
+    positions[LANKLE][0] = 180.092f ;//-9.946f;
+    positions[LANKLE][1] =  -17.616f;//-66.638f;
+    positions[LANKLE][2] =  -27.339f;//-110.759f;
 
     // position related to ankle
-    positions[RFOOT][0] = -172.087f;
-    positions[RFOOT][1] = -74.531f;
-    positions[RFOOT][2] = 108.985f;
+    positions[RFOOT][0] = -159.893f;//-172.087f;
+    positions[RFOOT][1] = 3.054f;//-74.531f;
+    positions[RFOOT][2] = -4.432f;//108.985f;
 
-    positions[LFOOT][0] =  -172.205f;
-    positions[LFOOT][1] =  -73.275f;
-    positions[LFOOT][2] =  -114.947f;
+    positions[LFOOT][0] = -162.259f ;//-172.205f;
+    positions[LFOOT][1] = -6.637 ; //-73.275f;
+    positions[LFOOT][2] = -4.188 ;// -114.947f;
 
     // position related to chest
-    positions[RSHOULDER][0] = 271.767f;
-    positions[RSHOULDER][1] = 123.096f;
-    positions[RSHOULDER][2] = 125.426f;
+    positions[RSHOULDER][0] = -10.253f;//271.767f;
+    positions[RSHOULDER][1] = 19.474f;//123.096f;
+    positions[RSHOULDER][2] = 128.899f;//125.426f;
 
-    positions[LSHOULDER][0] =  271.922f;
-    positions[LSHOULDER][1] =  123.162f;
-    positions[LSHOULDER][2] =  -131.348f;
+    positions[LSHOULDER][0] = -10.098f;// 271.922f;
+    positions[LSHOULDER][1] = 19.54f;// 123.162f;
+    positions[LSHOULDER][2] = -127.975f;// -131.348f;
 
     // position related to shoulder
-    positions[RARM][0] = 206.357f;
-    positions[RARM][1] = 8.661f;
-    positions[RARM][2] = 146.904f;
+    positions[RARM][0] = 75.663f;//206.357f;
+    positions[RARM][1] = 94.961f;//8.661f;
+    positions[RARM][2] = -150.377f;//146.904f;
 
-    positions[LARM][0] = 207.135f;
-    positions[LARM][1] = 4.56f;
-    positions[LARM][2] = -159.53f;
+    positions[LARM][0] = 74.885f;//207.135f;
+    positions[LARM][1] = 99.062f;//4.56f;
+    positions[LARM][2] = 156.057f;//-159.53f;
 
     // position related to arm
-    positions[RFOREARM][0] = 248.833f;
-    positions[RFOREARM][1] = 16.592f;
-    positions[RFOREARM][2] = 138.355f;
+    positions[RFOREARM][0] = -33.118f;//248.833f;
+    positions[RFOREARM][1] = -87.03f;//16.592f;
+    positions[RFOREARM][2] = 141.828f;//138.355f;
 
-    positions[LFOREARM][0] =  247.473f;
-    positions[LFOREARM][1] =  18.284f;
-    positions[LFOREARM][2] =  -145.477f;
+    positions[LFOREARM][0] = -34.547f;// 247.473f;
+    positions[LFOREARM][1] = -85.338f;// 18.284f;
+    positions[LFOREARM][2] = -142.004f;// -145.477f;
 
     // position relates to forearm
-    positions[RHAND][0] = 73.007f;
-    positions[RHAND][1] = -2.665f;
-    positions[RHAND][2] = 125.898f;
+    positions[RHAND][0] = -209.013f;//73.007f;
+    positions[RHAND][1] = -106.287f;//-2.665f;
+    positions[RHAND][2] = 129.371;//125.898f;
 
-    positions[LHAND][0] = 82.965f;
-    positions[LHAND][1] = -2.333f;
-    positions[LHAND][2] = -42.948f;
+    positions[LHAND][0] = -199.055f;//82.965f;
+    positions[LHAND][1] = -105.955f;//-2.333f;
+    positions[LHAND][2] = -139.475f;//-42.948f;
 
 
     // define initial rotations  // angle x y z
@@ -260,6 +264,7 @@ Robot::~Robot(){
 }
 
 void Robot::draw(){ // display()
+    glPushMatrix();
    parts[CHEST]->draw(rotations[CHEST]);
     glPushMatrix();
     {
@@ -273,105 +278,49 @@ void Robot::draw(){ // display()
     glPushMatrix();
     {
         parts[HIPS]->draw(rotations[HIPS]);
+        glPushMatrix();
+            glRotatef(angleTranslation[RLEG], 0, 0, 1);
+            parts[RLEG]->draw(rotations[RLEG]);
+            parts[RANKLE]->draw(rotations[RANKLE]);
+            parts[RFOOT]->draw(rotations[RFOOT]);
+        glPopMatrix();
+        
+        glPushMatrix();
+            glRotatef(angleTranslation[RLEG], 0, 0, 1);
+            parts[LLEG]->draw(rotations[LLEG]);
+            parts[LANKLE]->draw(rotations[LANKLE]);
+            parts[LFOOT]->draw(rotations[LFOOT]);
+        glPopMatrix();
     }
     glPopMatrix();
     
-   // // DOWN PART OF THE BODY
-   // glPushMatrix();
-   // {
-   //
-   //
-   //     // RIGHT SIDE LEGS
-   //     glPushMatrix();
-   //     {
-   //         parts[RLEG]->draw(rotations[RLEG]);
-   //         parts[RANKLE]->draw(rotations[RANKLE]);
-   //         parts[RFOOT]->draw(rotations[RFOOT]);
-   //
-   //     }
-   //     glPopMatrix();
-   //
-   //     // LEFT SIDE LEGS
-   //     glPushMatrix();
-   //     {
-   //         parts[LLEG]->draw(rotations[LLEG]);
-   //         parts[LANKLE]->draw(rotations[LANKLE]);
-   //         parts[LFOOT]->draw(rotations[LFOOT]);
-   //     }
-   //     glPopMatrix();
-   //
-   //
-   //
-   // }glPopMatrix();
-   //
-   // // TOP PART OF THE BODY
-   // glPushMatrix();
-   // {
-   //
-   //
-   //     //ARMS
-   //
-   //     // RIGHT ARM
-   //     glPushMatrix();
-   //     {
-   //         parts[RSHOULDER]->draw(rotations[RSHOULDER]);
-   //         parts[RARM]->draw(rotations[RARM]);
-   //         parts[RFOREARM]->draw(rotations[RFOREARM]);
-   //         parts[RHAND]->draw(rotations[RHAND]);
-   //     }
-   //     glPopMatrix();
-   //
-   //     // LEFT ARM
-   //     glPushMatrix();
-   //     {
-   //         parts[LSHOULDER]->draw(rotations[LSHOULDER]);
-   //         parts[LARM]->draw(rotations[LARM]);
-   //         parts[LFOREARM]->draw(rotations[LFOREARM]);
-   //         parts[LHAND]->draw(rotations[LHAND]);
-   //     }
-   //     glPopMatrix();
-   //     //glPopMatrix();
-   //     // NECK
-   //
-   //     // HEAD
-   //
-   //
-   //
-   //
-   // }
-   // glPopMatrix();
-    
-    
-    // SOS
-   //parts[HIPS]->draw(rotations[HIPS]);
-   //parts[RLEG]->draw(rotations[RLEG]);
-   //parts[RANKLE]->draw(rotations[RANKLE]);
-   //parts[RFOOT]->draw(rotations[RFOOT]);
-   //parts[LLEG]->draw(rotations[LLEG]);
-   //parts[LANKLE]->draw(rotations[LANKLE]);
-   //parts[LFOOT]->draw(rotations[LFOOT]);
-   //parts[CHEST]->draw(rotations[CHEST]);
-   //parts[RSHOULDER]->draw(rotations[RSHOULDER]);
-   //parts[RARM]->draw(rotations[RARM]);
-   //parts[RFOREARM]->draw(rotations[RFOREARM]);
-   //parts[RHAND]->draw(rotations[RHAND]);
-   //parts[LSHOULDER]->draw(rotations[LSHOULDER]);
-   //parts[LARM]->draw(rotations[LARM]);
-   //parts[LFOREARM]->draw(rotations[LFOREARM]);
-   //parts[LHAND]->draw(rotations[LHAND]);
-   //parts[NECK]->draw(rotations[NECK]);
-    /*
-    rotations[HEAD][0] =      angleTranslation[HEAD];
-    rotations[HEAD][1] =      0;
-    rotations[HEAD][2] =      0;
-    rotations[HEAD][3] =      1;
-    
-    parts[HEAD]->draw(rotations[HEAD]);
-    if(false){
+    glPushMatrix();
+    {
+        glPushMatrix();
+        {
+            parts[RSHOULDER]->draw(rotations[RSHOULDER]);
+            parts[RARM]->draw(rotations[RARM]);
+            glRotatef(angleTranslation[RFOREARM], 0, 0, 1);
+            parts[RFOREARM]->draw(rotations[RFOREARM]);
+            parts[RHAND]->draw(rotations[RHAND]);
+        }
+        glPopMatrix();
+        
+        glPushMatrix();
+        {
+            parts[LSHOULDER]->draw(rotations[LSHOULDER]);
+            parts[LARM]->draw(rotations[LARM]);
+            glRotatef(angleTranslation[RFOREARM], 0, 0, 1);
+            parts[LFOREARM]->draw(rotations[LFOREARM]);
+            parts[LHAND]->draw(rotations[LHAND]);
+        }
+        glPopMatrix();
+    }
+    glPopMatrix();
+    glPopMatrix();
+    if(showBox){
         parts[CAJA]->draw(rotations[CAJA]);
-    }*/
-    
-
+    }
 }
 
 void Robot::update(){ // update
@@ -384,23 +333,13 @@ void Robot::startAnimation(){
         angleTranslation[HEAD] = angleTranslation[HEAD] -1;
     }
     
-    
-    /*
-    // HEAD
-    glPushMatrix();
-    {
-        
-        glTranslatef(-positions[HEAD][0],-positions[HEAD][1],-positions[HEAD][2]);
-        // 1. Rotate
-       glRotatef(0, 0, -40, 1);
-        // 2. translate
-        glTranslatef(positions[HEAD][0],positions[HEAD][1],positions[HEAD][2]);
-        // 3. Scale
-        //glScalef(1, 0.5, 0.5);
-        parts[HEAD]->draw(rotations[HEAD]);
-        
+    if(angleTranslation[RLEG] < 90){
+        angleTranslation[RLEG] = angleTranslation[RLEG] +1;
     }
-    glPopMatrix();*/
+    
+    if( angleTranslation[RFOREARM] < 90){
+           angleTranslation[RFOREARM] = angleTranslation[RFOREARM] +1;
+       }
     
 }
 
@@ -410,4 +349,16 @@ void Robot::returnAnimation(){
     if(angleTranslation[HEAD] < 0){
         angleTranslation[HEAD] = angleTranslation[HEAD] +1;
     }
+    
+    if(angleTranslation[RLEG] > 0){
+        angleTranslation[RLEG] = angleTranslation[RLEG] -1;
+    }
+    
+    if( angleTranslation[RFOREARM] > 0){
+        angleTranslation[RFOREARM] = angleTranslation[RFOREARM] -1;
+    }
+    
+    
+
+
 }

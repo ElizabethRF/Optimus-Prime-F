@@ -40,6 +40,7 @@ public:
     float position[3];
     float rotation[4];
     char* objectName;
+    GLMmodel* x; 
     
 
     
