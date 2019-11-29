@@ -19,17 +19,15 @@ Block::~Block(){
 void Block::draw(float rotations[4]){ // display()
 
     glPushMatrix();
-        glRotatef(rotation[0], rotation[1], rotation[2], rotation[3]);
-        glTranslatef(position[0], position[1], position[2]);
-
-
-
-        GLMmodel* x = glmReadOBJ(objectName);
-
-
-        glmDraw(x, GLM_MATERIAL);
+    
+    glRotatef(rotations[0], rotations[1], rotations[2], rotations[3]);
+    glTranslatef(position[0], position[1], position[2]);
+    
+    GLMmodel* x = glmReadOBJ(objectName);
+    glmDraw(x, GLM_MATERIAL);
     glPopMatrix();
-
+    
+    
 }
 
 void Block::update(){ // update

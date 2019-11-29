@@ -29,6 +29,7 @@
 
 #include <stdio.h>
 #include <math.h>
+#include <iostream>
 
 #include "robot.h"
 #include "background.h"
@@ -54,7 +55,7 @@ float randBetween(float min, float max){
 
 void init() // FOR GLUT LOOP
 {
-    cameraX = 0.0f;
+    cameraX = 00.0f;
     cameraY = 0.0f;
     cameraZ = 600.0f;
     type = 10;
@@ -143,7 +144,7 @@ void display()                            // Called for each frame (about 60 tim
     background->draw();
     glPushMatrix();
     glScalef(0.5, 0.5, 0.5);
-       robot->draw();
+      
         
     glPopMatrix();
     
@@ -151,30 +152,40 @@ void display()                            // Called for each frame (about 60 tim
     
     switch (type) {
            case 1:
-               // particle system
-            for (int p = 0; p < NUM_P; p++) {
-                particles[p] -> draw();
+            if(cameraY < 100){
+                cameraY = cameraY +1;
             }
                break;
            case 2:
-               // animation
-            robot -> update();
+            if(cameraY > -100){
+                cameraY = cameraY -1;
+            }
                break;
            case 3:
                //move camera right
-            if(cameraX < 100){
+            if(cameraX < 400){
                 cameraX = cameraX +1;
             }
                break;
            case 4:
                // move camera left
             if(cameraX > -100){
-                cameraX = cameraX -1;
+                cameraX = cameraX - 1;
             }
-                
                break;
+        case 5: // particle system
+            for (int p = 0; p < NUM_P; p++) {
+                particles[p] -> draw();
+            }
+            break;
+        case 6: // animation
+            robot -> startAnimation();
+            break;
+        case 7:
+            robot -> returnAnimation();
+            break;
        }
-    
+         robot->draw();
     
     
 
@@ -227,6 +238,15 @@ void keyboard(unsigned char key, int x, int y){
             break;
         case 'd':
             type = 4; // move right 
+            break;
+        case '1':
+            type = 5; // move right
+            break;
+        case '2':
+            type = 6; // move right
+            break;
+        case '3':
+            type = 7;
             break;
     }
     

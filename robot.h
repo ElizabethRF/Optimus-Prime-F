@@ -38,6 +38,8 @@ public:
 
     void draw();
     void update();
+    void startAnimation();
+    void returnAnimation();
 
     enum ROBOT_PARTS{
       HEAD, NECK, CAJA, CHEST, HIPS, RLEG, RANKLE, RFOOT,LLEG, LANKLE, LFOOT,LSHOULDER, LARM,  LFOREARM,LHAND, RSHOULDER, RARM, RHAND,RFOREARM
@@ -48,8 +50,9 @@ public:
     float positions[PARTS][3];
     //GLMmodel* objects[PARTS];
    char* objects[PARTS];
-    bool diegoOEli; 
-
+    bool diegoOEli;
+    bool showBox; 
+    float angleTranslation[PARTS]; 
 
 };
 
